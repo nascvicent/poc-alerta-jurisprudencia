@@ -31,13 +31,13 @@ public class TestController {
         return alertaService.criarAlerta(email, termo, diasFrequencia, diasExpiracao);
     }
 
-    // 2. Listar todos os alertas
+    
     @GetMapping("/alertas")
     public List<AlertaPesquisa> listarAlertas() {
         return alertaService.listarTodos();
     }
 
-    // 3. Inserir jurisprudência de teste
+    
     @PostMapping("/jurisprudencias")
     public Jurisprudencia inserirJurisprudencia(
             @RequestParam String numero,
@@ -51,14 +51,14 @@ public class TestController {
         return jurisRepo.save(jurisprudencia);
     }
 
-    // 4. FORÇAR processamento de alertas (sem esperar o agendamento)
+    // forcar processamento de alertas (sem esperar o agendamento)
     @PostMapping("/processar-alertas")
     public String processarAgora() {
         alertaService.processarAlertas();
         return "Alertas processados! Verifique seu email.";
     }
 
-    // 5. Listar jurisprudências
+    
     @GetMapping("/jurisprudencias")
     public List<Jurisprudencia> listarJurisprudencias() {
         return jurisRepo.findAll();
