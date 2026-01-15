@@ -20,7 +20,7 @@ public class TestController {
     @Autowired
     private JurisprudenciaRepository jurisRepo;
 
-    // 1. Criar alerta
+    
     @PostMapping("/alertas")
     public AlertaPesquisa criarAlerta(
             @RequestParam String email,
