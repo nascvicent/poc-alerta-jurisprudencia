@@ -24,14 +24,14 @@ public class EmailService {
             textoEmail.append("Resumo: ").append(jur.getEmenta().substring(0, Math.min(jur.getEmenta().length(), 100))).append("...\n");
         }
 
-        // Criando a mensagem
+        // criando a mensagem
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom("apenasteste@com");
         message.setTo(destinatario);
         message.setSubject("Alerta de Jurisprudência: " + novidades.size() + " novos resultados");
         message.setText(textoEmail.toString());
 
-        // Enviando (Vai aparecer no Mailtrap)
+        
         mailSender.send(message);
         System.out.println("E-mail enviado para: " + destinatario);
     }
